@@ -24,7 +24,7 @@ Before running this project, ensure you have the following installed:
 - tensorflow
 - django
 
-## How to Run
+## 📦 Installation
 1. **Clone this repository:**
    ```bash
    git clone https://github.com/your-username/FruitVision.git
@@ -48,6 +48,32 @@ Before running this project, ensure you have the following installed:
    ```bash
    python manage.py runserver
 - Go to http://127.0.0.1:8000/
+
+---
+
+## 📸 Dataset Source
+
+FruitVision uses a dataset provided by shreya.maher on Kaggle:
+- Link: https://www.kaggle.com/datasets/shreyapmaher/fruits-dataset-images
+
+---
+
+## 🧠 Tech Stack
+- **Backend:** Django (Python)
+- **Machine Learning:** TensorFlow, Keras
+- **Image Processing:** Pillow
+- **Data Visualization:** Matplotlib, Seaborn
+- **Frontend:** HTML/CSS(Tailwind), Django Templates
+
+---
+
+## 🙌 Credits & Contributions
+- Developed by Kenitplay
+- Dataset by shreya.maher
+
+---
+
+
 
 
 
