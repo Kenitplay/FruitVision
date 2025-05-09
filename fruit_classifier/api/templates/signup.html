@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | FruitVision</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            library: {
+              light: '#e6f0e6',
+              green: '#3b7c3f',
+              darkgreen: '#2d5930',
+              accent: '#a3d9a5'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-library-light flex items-center justify-center min-h-screen px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-library-green">
+
+    <!-- Back to Home -->
+    <div class="mb-4 text-sm text-center">
+      <a href="{% url 'home' %}" class="text-library-green hover:underline">
+        ← Back to Home
+      </a>
+    </div>
+
+    <!-- Title -->
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-extrabold text-library-green">Sign Up</h2>
+      <p class="text-gray-600 text-sm mt-1">Create your account to get started</p>
+    </div>
+
+    <!-- Form -->
+    <form method="POST" class="space-y-5">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div>
+        <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700">Username</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+          <p class="text-sm text-red-600 mt-1">{{ form.username.errors.0 }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-700">Password</label>
+        {{ form.password }}
+        {% if form.password.errors %}
+          <p class="text-sm text-red-600 mt-1">{{ form.password.errors.0 }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="{{ form.confirm_password.id_for_label }}" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        {{ form.confirm_password }}
+        {% if form.confirm_password.errors %}
+          <p class="text-sm text-red-600 mt-1">{{ form.confirm_password.errors.0 }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full py-2 bg-library-green hover:bg-library-darkgreen text-white rounded-lg font-semibold transition duration-200 shadow-md">
+        Sign Up
+      </button>
+    </form>
+
+    <!-- Already have an account? -->
+    <div class="mt-4 text-center text-sm">
+      Already have an account?
+      <a href="{% url 'login' %}" class="text-library-green font-semibold hover:underline">
+        Login here
+      </a>
+    </div>
+  </div>
+
+  <!-- Style form fields uniformly -->
+  <style>
+    input {
+      @apply w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-library-accent;
+    }
+  </style>
+
+</body>
+</html>
